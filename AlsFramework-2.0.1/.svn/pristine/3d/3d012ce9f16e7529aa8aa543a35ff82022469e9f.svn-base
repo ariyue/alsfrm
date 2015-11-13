@@ -1,8 +1,0 @@
-
-1 所有的选项都存放在frm_bas_constant中
-2 表ums_entity，自动生成entity_sid字段（字符长度5）。
-3 表ums_user的ID由用户创建的user_name来形成，其形成格工为user_name + @ + entity_sid.
-4 企业注册时：
-   ums_entity自动生成entity_sid,如:00001
-   ums_user自动生成一个管理员账号admin@entity_sid,自动初始密码：AA123456.
-   ums_unit自动生成顶级组织机构。

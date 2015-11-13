@@ -1,7 +1,0 @@
-文件中定义了产品、版本、Mac地址、license类型、license有效期等信息。如下所示：
-Product.name=als
-Product.version=2.0.0
-License.type=dev
-License.expiry=2015-05-12
-Server.macaddress=00-1B-77-2C-9D-8F
-signature=302d0215008b4ef2390e11d28f5ea7b86f71ba5168bfeaa6b402146c77706b985be68cc515c6079b31ad50e3f17552
