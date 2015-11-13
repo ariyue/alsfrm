@@ -1,0 +1,5 @@
+0 用于测试的类 (HelloWord.java)
+1 生成key (key.java)
+2 加密(Crypt.java)
+3 自定义classloader(MyClassLoader.java)
+4 解密并运用自定义的类加载(Derypt.java)

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Document" type="Document"/>
+	<xs:complexType name="CommercialDraftSystemCommonSwitchNotificationV01">
+		<xs:sequence>
+			<xs:element name="MsgId" type="MessageIdentification1"/>
+			<xs:element name="Swtch" type="Switch1"/>
+			<xs:element name="HvpsSysInf" type="HvpsSystemInformation1" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Document">
+		<xs:sequence>
+			<xs:element name="CommercialDraftSystemCommonSwitchNotification" type="CommercialDraftSystemCommonSwitchNotificationV01"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ISODate">
+		<xs:restriction base="xs:date"/>
+	</xs:simpleType>
+	<xs:simpleType name="ISODateTime">
+		<xs:restriction base="xs:dateTime"/>
+	</xs:simpleType>
+	<xs:simpleType name="Max35NumericText">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="35"/>
+			<xs:pattern value="[0-9]{1,35}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="HvpsSystemDate1">
+		<xs:sequence>
+			<xs:element name="NxtSysDt" type="ISODate"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MessageIdentification1">
+		<xs:sequence>
+			<xs:element name="Id" type="Max35NumericText"/>
+			<xs:element name="CreDtTm" type="ISODateTime"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HvpsSystemInformation1">
+		<xs:sequence>
+			<xs:element name="NxtSysDt" type="ISODate"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Switch1">
+		<xs:sequence>
+			<xs:element name="Tp" type="SwitchTypeCode"/>
+			<xs:element name="SwtchOnOffMrkr" type="SwitchOnOffCode"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="SwitchTypeCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ST01"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SwitchOnOffCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SO01"/>
+			<xs:enumeration value="SO02"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

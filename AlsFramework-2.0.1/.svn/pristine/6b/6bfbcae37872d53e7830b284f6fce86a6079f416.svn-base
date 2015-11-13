@@ -1,0 +1,61 @@
+
+
+一、开发环境  
+1. 操作系统：Windows 或者 Ubuntu Desktop（Linux）系统。 
+2. 开发IDE：MyEclipse。 
+3. 开发平台：JDK1.7.0。 
+4. 应用服务器：Tomcat 7.0 或者 Jetty 6.0 以上版本 
+5. 数据库：MySQL 或者 H2。 6. 
+6. 系统结构：B/S 架构。 
+7. 开发语言：HTML5、JAVA、JSP、CSS3 等。 
+8. 代码托管：GIT。 
+9. 项目管理：MAVEN。 
+10. 业务逻辑：采用 Spring4.1.0.RELEASE。 
+11. 数据库层：采用 Spring Data JPA。 
+12. 前端 UI：采用 JqueryUI
+
+
+二、程序设计
+1 系统安全：
+1.1 开发代码授权license(2015.06.01基本实现，接下来重构和进行设计一下)
+1.2 用户使用UKEY
+1.3 登陆或业务操作时，数据传入后能时加密，到服务器时解密
+1.4 get传参时进行加密，在后台进行解密
+
+系统启动时可以通过配置加载启动链（list)
+增加lisense模块，对MAC地址，用户，用户数，有效期限(启动链中加入lisense验证,服务端公匙和lisense.properties验证），用户业务提交时公匙客户端验证。(2015.06.01基本实现，接下来重构和进行设计一下)
+通用邮件收发
+增加系统缓存
+PAGE分页组件可以对某个字段或多个字段时行排序
+任何一个请求都可以配置请求之前做的事和请求完后后做的事（list)
+UI工具栏常用+，－，X，可以自定义
+
+2 alsWeb层框架
+M: 有请求的AppData,返回的RstData和MsgData
+V: JSP
+C: 设计BasAction,其它继承BasAction
+
+web与异常设计及国际化进行整合设计
+
+
+ui控件：
+表单：
+Text
+SearchText
+Combo
+LookupText
+DateText
+TimeText
+Grid-------http://www.jb51.net/article/42016.htm
+面版：
+page
+Toolbar(漂浮在page最上方)
+Form
+Zone
+Row
+Fld
+Dialog
+
+
+
+

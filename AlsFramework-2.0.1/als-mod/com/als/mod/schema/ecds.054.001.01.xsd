@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Document" type="Document"/>
+	<xs:complexType name="CommercialDraftSystemStatusNotificationV01">
+		<xs:sequence>
+			<xs:element name="MsgId" type="MessageIdentification1"/>
+			<xs:element name="SysSts" type="Systemstatus3"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Document">
+		<xs:sequence>
+			<xs:element name="CommercialDraftSystemStatusNotification" type="CommercialDraftSystemStatusNotificationV01"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ISODate">
+		<xs:restriction base="xs:date"/>
+	</xs:simpleType>
+	<xs:simpleType name="ISODateTime">
+		<xs:restriction base="xs:dateTime"/>
+	</xs:simpleType>
+	<xs:simpleType name="Max2Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max35NumericText">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="35"/>
+			<xs:pattern value="[0-9]{1,35}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max8Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="8"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="MessageIdentification1">
+		<xs:sequence>
+			<xs:element name="Id" type="Max35NumericText"/>
+			<xs:element name="CreDtTm" type="ISODateTime"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Systemstatus3">
+		<xs:sequence>
+			<xs:element name="OrgnlSysDt" type="ISODate"/>
+			<xs:element name="OrgnlSysSts" type="Max2Text"/>
+			<xs:element name="SysDt" type="ISODate"/>
+			<xs:element name="SysSts" type="Max2Text"/>
+			<xs:element name="NxtSysDt" type="ISODate"/>
+			<xs:element name="BizRefTm" type="Max8Text"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

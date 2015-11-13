@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by alick (cncc) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Document" type="Document"/>
+	<xs:complexType name="Account1">
+		<xs:sequence>
+			<xs:element name="AcctSvcr" type="MaxMin12NumericText"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Authority1">
+		<xs:sequence>
+			<xs:element name="SndAuthrtyNb" type="Max3NumericText"/>
+			<xs:element name="RcvAuthrtyNb" type="Max3NumericText"/>
+			<xs:element name="SndAuthrtyList" type="Max800Text" minOccurs="0"/>
+			<xs:element name="RcvAuthrtyList" type="Max800Text" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommercialDraftAuthorityNotificationV01">
+		<xs:sequence>
+			<xs:element name="MsgId" type="MessageIdentification1"/>
+			<xs:element name="PtcptAuthrtyInf" type="ParticipantAuthorityInformation1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ParticipantAuthorityInformation1">
+		<xs:sequence>
+			<xs:element name="Authrty" type="Authority1"/>
+			<xs:element name="Ptcpt" type="Organisation1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="CurrencyAndAmount_SimpleType">
+		<xs:restriction base="xs:decimal">
+			<xs:pattern value="(\d{1,18})|(\d{1,18}\.)|(\d{1,17}\.\d{0,1})|(\d{1,16}\.\d{0,2})|(\.\d{1,2})"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="CurrencyAndAmount">
+		<xs:simpleContent>
+			<xs:extension base="CurrencyAndAmount_SimpleType">
+				<xs:attribute name="Ccy" type="CurrencyCode" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="CurrencyCode">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="CNY"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Document">
+		<xs:sequence>
+			<xs:element name="CommercialDraftAuthorityNotification" type="CommercialDraftAuthorityNotificationV01"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ISODateTime">
+		<xs:restriction base="xs:dateTime"/>
+	</xs:simpleType>
+	<xs:simpleType name="Max800Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="800"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max35NumericText">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="35"/>
+			<xs:pattern value="[0-9]{1,35}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max3NumericText">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{1,3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MaxMin12NumericText">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="12"/>
+			<xs:maxLength value="12"/>
+			<xs:pattern value="[0-9]{1,12}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="MessageIdentification1">
+		<xs:sequence>
+			<xs:element name="Id" type="Max35NumericText"/>
+			<xs:element name="CreDtTm" type="ISODateTime"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Organisation1">
+		<xs:sequence>
+			<xs:element name="Acct" type="Account1"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

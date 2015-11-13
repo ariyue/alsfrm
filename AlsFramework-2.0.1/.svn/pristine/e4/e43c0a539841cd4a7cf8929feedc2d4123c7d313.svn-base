@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee   
+         http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+
+
+	<listener>
+        <listener-class>org.apache.logging.log4j.web.Log4jServletContextListener</listener-class>
+    </listener>
+    
+    <listener>
+        <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+ 	</listener>
+    <filter>
+        <filter-name>log4jServletFilter</filter-name>
+        <filter-class>org.apache.logging.log4j.web.Log4jServletFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>log4jServletFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>INCLUDE</dispatcher>
+        <dispatcher>ERROR</dispatcher>
+    </filter-mapping>
+
+
+	<!--  Spring 上下文参数 加载Spring配置文件 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath*:config/als-context.xml</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<!--  Spring 上下文参数 加载Spring配置文件 end -->
+
+	<!-- 程序Session配置 -->
+	<session-config>
+		<!-- Session过期时间(单位：分) -->
+		<session-timeout>30</session-timeout>
+	</session-config>
+
+	<!-- 激活Tomcat的defaultServlet来处理静态文件 -->
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.jpg</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.gif</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.png</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.js</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.css</url-pattern>
+	</servlet-mapping>
+
+	
+	<!-- spring mvc 拦截器配置 -->
+	<servlet>
+		<servlet-name>alsDispatcher</servlet-name>
+
+		<servlet-class>com.als.frm.bas.web.AlsDispatcher</servlet-class>
+		<!--
+			<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		-->
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath*:/config/als-dispatcher.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>alsDispatcher</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+
+	<!-- 字符编码配置 -->
+	<filter>
+		<filter-name>characterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>characterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- 欢迎页 -->
+	<welcome-file-list>
+		<welcome-file>/index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!-- only for test ++++++++++++++++++++++++++++++++ -->
+
+	<listener>
+		<listener-class>com.als.abc.module.tst.MyListener</listener-class>
+	</listener>
+
+	<listener>
+		<listener-class>com.als.web.action.ContextListener</listener-class>
+	</listener>
+	<!-- 
+	default servlet
+	Tomcat, Jetty, JBoss, and GlassFish 自带的默认Servlet的名字 "default"
+　　　　Google App Engine 自带的 默认Servlet的名字 "_ah_default"
+　　　　Resin 自带的 默认Servlet的名字 "resin-file"
+　　　　WebLogic 自带的 默认Servlet的名字 "FileServlet"
+　　　　WebSphere 自带的 默认Servlet的名字 "SimpleFileServlet"
+ 	-->
+	<servlet-mapping>  
+	  <servlet-name>default</servlet-name> 
+	  <url-pattern>*.jpg</url-pattern>   
+	</servlet-mapping>  
+	<servlet-mapping>    
+	  <servlet-name>default</servlet-name>  
+	  <url-pattern>*.js</url-pattern>  
+	</servlet-mapping>  
+	<servlet-mapping>    
+	  <servlet-name>default</servlet-name>    
+	  <url-pattern>*.css</url-pattern>   
+	</servlet-mapping>
+	
+	<servlet-mapping>    
+	  <servlet-name>default</servlet-name>    
+	  <url-pattern>*.xml</url-pattern>   
+	</servlet-mapping>
+	<!-- default servlet end  -->
+	<servlet>
+		<servlet-name>webDispatcher</servlet-name>
+		<servlet-class>com.als.web.action.WebDispatcher</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>webDispatcher</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	<!-- only for test end  ++++++++++++++++++++++++++++++++ -->
+
+	<!--
+		图片验证码
+		::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	-->
+	<servlet>
+		<description>图片验证码</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>ImageRandomCodeServlet</servlet-name>
+		<servlet-class>com.als.frm.servlet.ImageRandomCodeServlet</servlet-class>
+	</servlet>
+
+
+
+	<servlet-mapping>
+		<servlet-name>ImageRandomCodeServlet</servlet-name>
+		<url-pattern>/servlet/ImageRandomCodeServlet.svlt</url-pattern>
+	</servlet-mapping>
+
+
+
+	<!--
+		图片验证码 end
+		::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	-->
+
+	<!-- log4j2 -->
+
+	<servlet>
+		<servlet-name>Log4j2Servlet</servlet-name>
+		<servlet-class>com.als.frm.servlet.Log4j2Servlet</servlet-class>
+		<load-on-startup>0</load-on-startup>
+		<init-param>
+			<!-- 配置文件根目录 -->
+			<param-name>configRoot</param-name>
+			<param-value>d://logs</param-value>
+		</init-param>
+		<init-param>
+			<!-- log4j2配置文件相对路径  -->
+			<param-name>log4j2Config</param-name>
+			<param-value>config/log4j2.xml</param-value>
+		</init-param>
+	</servlet>
+	
+	<taglib> 
+      <taglib-uri>alsTags</taglib-uri> 
+      <taglib-location>/WEB-INF/tld/als.tld</taglib-location> 
+   </taglib>      
+</web-app>  

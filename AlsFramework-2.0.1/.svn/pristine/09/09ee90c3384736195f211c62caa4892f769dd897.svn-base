@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="als-frm-2.0.0"/>
+	<classpathentry kind="src" path="als-lcs-2.0.0"/>
+	<classpathentry kind="src" path="als-abc-2.0.0"/>
+	<classpathentry kind="src" path="als-mod"/>
+	<classpathentry kind="src" path="als-tes"/>
+	<classpathentry kind="src" path="als-cfg"/>
+	<classpathentry kind="src" path="als-blank-2.0.0"/>
+	<classpathentry kind="src" path="als-lcs-new"/>
+	<classpathentry kind="src" path="als-lcs-server-2.0.0"/>
+	<classpathentry kind="src" path="als-web-2.0.0"/>
+	<classpathentry kind="src" path="als-ums-2.0.0"/>
+	<classpathentry kind="src" path="als-tol-2.0.0"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/als-lib-2.0.0"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/als-lib-2.0.0-j2ee"/>
+	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
+</classpath>

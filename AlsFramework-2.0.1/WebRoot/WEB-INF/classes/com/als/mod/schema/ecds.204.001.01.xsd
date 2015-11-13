@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Document" type="Document"/>
+	<xs:complexType name="Document">
+		<xs:sequence>
+			<xs:element name="ContractOfferExceptionNotification" type="ContractOfferExceptionNotificationV01"/>
+			<xs:element name="PtcptSgntr" type="Signature"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ContractOfferExceptionNotificationV01">
+		<xs:sequence>
+			<xs:element name="MsgId" type="MessageIdentification1"/>
+			<xs:element name="OrgnlMsgId" type="MessageIdentification1"/>
+			<xs:element name="Ctrct" type="Contract2"/>
+			<xs:element name="XcptnInf" type="ExceptionInfomation1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ExceptionInfomation1">
+		<xs:sequence>
+			<xs:element name="XcptnCd" type="ExceptionCode"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MessageIdentification1">
+		<xs:sequence>
+			<xs:element name="Id" type="Max35NumericText"/>
+			<xs:element name="CreDtTm" type="ISODateTime"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Contract2">
+		<xs:sequence>
+			<xs:element name="CtrctNb" type="Max30NumericText"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ExceptionCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="EC00"/>
+			<xs:enumeration value="EC01"/>
+			<xs:enumeration value="EC02"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max35NumericText">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="35"/>
+			<xs:pattern value="[0-9]{1,35}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ISODateTime">
+		<xs:restriction base="xs:dateTime"/>
+	</xs:simpleType>
+	<xs:simpleType name="Max30NumericText">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="30"/>
+			<xs:pattern value="[0-9]{1,30}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Signature">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="2000"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

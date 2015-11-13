@@ -1,0 +1,358 @@
+@charset "utf-8";
+/*
+描述: bud整体样式表_apple
+版本: 0.1
+压缩地址: http://web.chacuo.net/formatcss
+[目录表]
+
+- Reset
+- Global
+- Colors
+- Structure
+- Header & Footer
+- Datepicker
+- CalendarList
+- CalendarNav
+- Events
+- CalendarIcons
+- CalendarTop & CalendarFoot
+- CalendarGrid
+- CalendarAgenda & CalendarWeek
+- CalendarMonth
+- Popup
+- Group
+
+*/
+
+/* = hack sample
+-------------------------------------------------------------------*/
+.myhacktest {
+	background-color:#eee; /*ff*/
+	background-color:red\0;  /* ie 8/9*/
+	background-color:blue\9\0;  /* ie 9*/
+	*background-color:#dddd00;  /* ie 7*/
+	_background-color:#CDCDCD;  /* ie 6*/
+	}
+
+/* = Reset
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre, 
+form,fieldset,input,textarea,p,blockquote,th,td{padding:0; margin:0;}
+fieldset,img{border:0;}
+address,caption,cite,code,dfn,em,i,strong,th,var{font-weight:normal; font-style:normal;}
+ol,ul{list-style:none;} 
+caption,th{text-align:left; } 
+h1,h2,h3,h4,h5,h6{font-weight:normal; font-size:100%; }
+q:before,q:after{content:'';}
+abbr,acronym{border:0;}
+li{list-style: none outside none;}
+
+/* = Global
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+body,input,textarea,button,label{font-family:"微软雅黑", "宋体",Arial, Verdana, Helvetica, sans-serif; font-size:12px;*font-size:11px;}
+body{ color:#7E7E7E;; background:#ffffff url(bg-page88888.jpg);}
+.clearfix:after{content:""; display:block; clear:both; height:0; visibility:hidden;}
+.clearfix{zoom:1;}
+.clear{clear:both;}
+.floatl{float:left;}
+.floatr{float:right;}
+a{ text-decoration:none; color:#6a6a6a; outline:none;}
+a:hover{ text-decoration:none;}
+button{ background:url(../images/combined.png) repeat-x 0 -1080px; padding-top:3px; padding-bottom:2px; *background-position:0 -1081px; *height:24px; line-height:17px; border:1px solid #b9833c; color:#434343; cursor:pointer;}
+button:hover{ color:#8e5027;}
+select{ border:1px solid #939393; background:#fff; height:21px; font-size:12px; vertical-align:middle;}
+.txtbox{ border:1px solid #939393; background:#fff; padding:2px; vertical-align:middle;}
+.disply-inline-block{display:inline-block;*display:inline; *zoom:1;}
+.als-icon-y-dragbar,.ui-layout-resizer-west,.ui-layout-resizer-east {cursor: e-resize;background: url("icon-y-dragbar.gif") no-repeat scroll center center #C3C3C3; border-color: -moz-use-text-color #909090;border-left: 1px solid #909090;border-right: 1px solid #909090;border-style: none solid;border-width: 0 1px;min-height: 10px;overflow: hidden; width: 4px;}
+.als-icon-x-dragbar {background: url("icon-x-dragbar.gif") no-repeat scroll center center transparent; font-size: 1px; height: 4px;line-height: 1px;margin: 0 auto;overflow: hidden;}
+/*
+.als-icon{white-space:nowrap;height: 24px; width:16px; padding-left:20px; margin-right:6px;display:inline; *zoom:1;margin-left:4px;}
+*/
+.als-icon,.als-inlineblock,.als-btnseparator { width: 16px;min-height: 16px;display: -moz-inline-stack;display: inline-block;vertical-align: middle;margin: 3px;zoom: 1;*display: inline; }
+
+.als-icon-small-logo{background: url("icon-small-logo.png") no-repeat 0 center;}
+.als-icon-help{ background: url("icon-help.png") no-repeat 0 center;}
+.als-icon-setting{ background: url("icon-setting.png") no-repeat 0 center;}
+.als-icon-save{ background: url("icon-save.png") no-repeat 0 center;}
+.als-icon-submit{ background: url("icon-submit.gif") no-repeat 0 center;}
+.als-icon-eye{ background: url("icon-eye.png") no-repeat 0 center;}
+.als-icon-excel{ background: url("icon-excel.png") no-repeat 0 center;}
+.als-icon-add{ background: url("icon-add.png") no-repeat 0 center;}
+.als-icon-edit{ background: url("icon-edit.png") no-repeat 0 center;}
+.als-icon-delete{ background: url("icon-delete.gif") no-repeat 0 center;}
+.als-icon-search{ background: url("icon-search.png") no-repeat 0 center;}
+.als-icon-refresh{ background: url("icon-refresh.gif") no-repeat 0 center;}
+.als-icon-minimize{cursor:pointer; background: url("icon-minimize.png") no-repeat 0 center;}/*窗口最小化*/
+.als-icon-maximize{cursor:pointer;background: url("icon-maximize.gif") no-repeat 0 center;}/*窗口最大化*/
+.als-icon-resize{cursor:pointer;background: url("icon-resize.png") no-repeat 0 center;}/*窗口还原*/
+.als-icon-close{cursor:pointer;background: url("icon-close.gif") no-repeat 0 center;}/*窗口关闭*/
+.als-icon-vtitle{cursor:pointer;background: url("icon-vtitle.gif") no-repeat 0 center;}/*各个小窗口的标题*/
+.als-icon-source-size-win{background: url("icon-source-size-win.png") no-repeat 0 center;cursor: pointer;}
+.als-icon-max-size-win{background: url("icon-max-size-win.png") no-repeat 0 center;cursor: pointer;}
+.als-icon-up{background: url("icon-up.png") no-repeat 0 center;cursor: pointer;}
+.als-icon-down{background: url("icon-down.png") no-repeat 0 center;cursor: pointer;}
+.als-icon-down2{background: url("icon-down2.gif") no-repeat 0 center;cursor: pointer;}
+.als-icon-left{background: url("icon-left.png") no-repeat 0 center;cursor: pointer;}
+.als-icon-right{background: url("icon-right.png") no-repeat 0 center;cursor: pointer;}
+.als-icon-none{ background: url("icon-none.gif") no-repeat 0 center;}
+.als-icon-default{ background: url("icon-default.gif") no-repeat 0 center;}
+.als-icon-readme{background: url("icon-readme.png") no-repeat 0 center;cursor: pointer;}
+.als-icon-p-first{ background: url("icon-p-first.gif") no-repeat 0 center; height:20px; width:20px;}
+.als-icon-p-last{ background: url("icon-p-last.gif") no-repeat 0 center; height:20px; width:20px;}
+.als-icon-p-next{ background: url("icon-p-next.gif") no-repeat 0 center; height:20px; width:20px;}
+.als-icon-p-pre{ background: url("icon-p-pre.gif") no-repeat 0 center; height:20px; width:20px;}
+.als-icon-clock{ background: url("icon-clock.png") no-repeat 0 center;}
+.als-icon-clock:hover{ background: url("icon-clock-on.png") no-repeat 0 center;}
+.als-icon-attachment{ background: url("icon-attach2.png") no-repeat 0 center;}
+.als-icon-attachment:hover{ background: url("icon-attachment-on.gif") no-repeat 0 center;}
+.als-icon-cc{ background: url("icon-cc.gif") no-repeat 0 center;}
+.als-icon-cc:hover{ background: url("icon-cc-on.gif") no-repeat 0 center;}
+.als-icon-bcc{ background: url("icon-bcc.gif") no-repeat 0 center;}
+.als-icon-bcc:hover{ background: url("icon-bcc-on.gif") no-repeat 0 center;}
+
+.als-icon-user{ background: url("icon-user.png") no-repeat 0 center;}
+.als-thin-table,.als-thin-table td, .als-thin-table th{ border:1px #000 solid; border-collapse:collapse;}
+.als-thin-table-noborder,.als-thin-table-noborder td, .als-thin-table-noborder th{ border:0px #000 solid; border-collapse:collapse;}
+.center{margin:0 auto; text-align:center;}
+
+fieldset {
+	padding:10px;
+	margin:10px;
+	border-collapse:collapse;
+	border: 1px dashed #CBCBCB;
+	width:800px;
+} 
+legend {
+	color:#575765;
+	font-weight: bold;
+}
+
+
+.als-tool-separator{
+	border-style: solid;border-color: #bfbfbf;border-width: 0 0 0 1px;
+}
+
+.als-form-table{width: 768px; line-height:26px; }
+.als-form-table th{ width:120px; font-size:12px;}
+.als-form-table td{ width:240px; }
+.easyui-textbox{ width:230px;}
+
+/* = dialog
+-------------------------------------------------------------------*/
+.alsui-dlog-warp{
+	background:#ffffff url('mingBoxBg.gif') center repeat; 
+	margin: 0 auto; 
+	padding:0; 
+	font-family: Verdana, PMingLiU; 
+	font-size: 12px; 
+	color: black; 
+	text-align: left;
+	border:solid 0px black; 
+	position: absolute;
+	z-index:100001;
+	display:none;
+	top: 50%; 
+ 	left: 50%;
+ 	/*margin-right:-325px;  设置为宽度的一半*/
+	/*margin-top:-149px;   设置为高度的一半*/
+}
+.alsui-dlog-hd{
+	background:#ffffff url('boxHeadBg.gif'); 
+	height :45px;
+	line-height :45px;
+	color: black;
+	clear:both;
+	
+}
+.alsui-dlog-hdl{
+	background:#ffffff url('bg-dlog_01.gif');
+	                        
+	float:left; 
+	width :18px;
+   
+}
+.alsui-dlog-hdc
+ {
+     background:#ffffff url('bg-dlog_02.gif');
+}
+.alsui-dlog-hdr{
+	background:#ffffff url('bg-dlog_04.gif');
+	float:right;
+	width :21px;
+}
+
+.alsui-dlog-bdl{
+	background:#ffffff url('bg-dlog_05.gif');
+	background-position:left;
+	background-repeat: repeat-y;
+	padding-left:18px;
+}
+.alsui-dlog-bdr{
+	background:#ffffff url('bg-dlog_08.gif');
+	background-repeat: repeat-y;
+	background-position:right;
+	padding-right:21px;
+	
+}
+.alsui-dlog-bd{
+	/*padding:10px  5px;*/
+	background:#fff url('boxBodyBg.gif');
+	line-height:150%;
+	overflow-y: auto;
+  	overflow-x: hidden;
+}
+
+
+.alsui-dlog-ft{
+	background:#ffffff url('boxHeadBg.gif'); 
+	height :20px;
+	line-height :20px;
+	color: black;
+	
+}
+.alsui-dlog-ftl{
+	background:#ffffff url('bg-dlog_13.gif');
+	float:left; 
+	width :18px;
+   
+}
+.alsui-dlog-ftc
+ {
+     background:#ffffff url('bg-dlog_14.gif');
+}
+.alsui-dlog-ftr{
+	background:#ffffff url('bg-dlog_16.gif');
+	float:right;
+	width :21px;
+}
+
+
+
+.titleText{
+	background:url('boxTitleIcon.png') no-repeat;
+	padding-left:0px;
+	color: #404040;
+	font-weight: bold;
+	font-size: 18px;
+	font-weight:700;
+}
+* html .alsui-dlog-hdl   /*ie 6.0*/
+{margin-right :-3px;}	     
+
+* html .alsui-dlog-hdr   /*ie 6.0*/
+{margin-left :-3px;}
+* html .alsui-dlog-ftl   /*ie 6.0*/
+{margin-right :-3px;}	     
+
+* html .alsui-dlog-ftr   /*ie 6.0*/
+{margin-left :-3px;}
+
+.mingPop_Hide{
+	display: none;
+}
+/*  dialog end-------------------------------------------------------------------*/
+
+/* = zone
+-------------------------------------------------------------------*/
+.alsui-zone{
+	margin:15px 3px 3px;
+	width:100%;
+	clear: both;
+}
+
+.alsui-zone-hd{
+	border-bottom:1px solid #eee;
+}
+
+.alsui-zone-t{
+	color: #404040;
+	font-weight: bold;
+	font-size: 14px;
+	font-weight: 700;
+}
+
+.alsui-zone-bd{
+	margin:5px;
+}
+
+/*  zone end-------------------------------------------------------------------*/
+.alsui-form-cap{
+}
+.alsui-row{
+	margin:0px; padding:0px;
+	float: none;
+	clear: both;
+}
+
+.alsui-row li{float: left; width:394px; padding-top:10px; padding-bottom: 5px;}
+label{ display:inline-block;*display:inline; *zoom:1;text-align:right;color:#666666;font-size: 14px;}
+label.up{ display:block;text-align:left;}
+.alsui-row li label{ 
+	/*width:100px; */
+	text-align:left;}
+.alsui-row li label.up{ display:block;text-align:left;}
+/* = row
+-------------------------------------------------------------------*/
+
+/*  row end-------------------------------------------------------------------*/
+
+/* = test
+-------------------------------------------------------------------*/
+.alsui-rdogrp input {  margin: 3px 3px 0px 5px; }
+.alsui-rdogrp .alsui-rdo { font-size:12px;  padding-left: 20px;  cursor: pointer;  background: url(bg-radio.jpg) no-repeat left top; width:auto;}
+.alsui-rdogrp .alsui-rdo-on {background-position: left bottom;}
+/*  test end-------------------------------------------------------------------*/
+
+.alsui-toolbar{
+	background:url(bg-toolbar.png);
+	border:1px solid #DFD9D9;
+	border-right-width: 0px;
+	border-left-width: 0px;
+	height: 24px;
+	position:absolute; width:100%; z-index: 2;
+}
+.alsui-form{
+	padding-top: 20px;
+	margin:6px;
+}
+.alsui-dlog-toolbar{
+	background:url(bg-toolbar.png);
+	border:1px solid #DFD9D9;
+	border-right-width: 0px;
+	border-left-width: 0px;
+	height: 24px;
+	width:100%;
+}
+.alsui-dlog-form{
+	margin:6px;
+}
+
+
+/**
+ * 两列布局，左中或中右
+ ************************************************************/
+.alsui-layout{
+	width:100%;
+	clear:both;
+}
+
+.alsui-layout-left{  
+	/*height:100px;  */
+	width:200px;  
+	float:left;  
+}  
+.alsui-layout-center {  
+		/*height:100px;  */
+
+	/*margin-right:200px;  中右为margin-right,右中margin-left:200px;*/
+}  
+ .alsui-layout-right{  
+		/*height:100px;  */
+
+	width:200px;  
+	float:right;  
+}
+
+/**
+ * 两列布局，左中或中右 end
+ ************************************************************/

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper 
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.als.frm.module.frm.dao.FrmBasConstantMappper"> 
+
+    <select id="lookupBasConstantCodeList"  resultType="java.util.HashMap" parameterType="java.util.HashMap">
+		select t.code code, entity_sid entitySid from frm_bas_constant t group by code
+	</select>
+</mapper>

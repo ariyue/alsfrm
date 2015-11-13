@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Document" type="Document"/>
+	<xs:complexType name="ActionType2">
+		<xs:sequence>
+			<xs:element name="TpMk" type="TypeMarkCode"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BusinessControlInformation1">
+		<xs:sequence>
+			<xs:element name="PrcCd" type="Max8Text"/>
+			<xs:element name="PrcMsg" type="Max60Text"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommercialDraftLoginOrLogoutResponseV01">
+		<xs:sequence>
+			<xs:element name="MsgId" type="MessageIdentification1"/>
+			<xs:element name="OrgnlMsgId" type="MessageIdentification1"/>
+			<xs:element name="ActnTp" type="ActionType2"/>
+			<xs:element name="SysSts" type="SystemStatus1"/>
+			<xs:element name="BizCtrlInf" type="BusinessControlInformation1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Document">
+		<xs:sequence>
+			<xs:element name="CommercialDraftLoginOrLogoutResponse" type="CommercialDraftLoginOrLogoutResponseV01"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ISODate">
+		<xs:restriction base="xs:date"/>
+	</xs:simpleType>
+	<xs:simpleType name="ISODateTime">
+		<xs:restriction base="xs:dateTime"/>
+	</xs:simpleType>
+	<xs:simpleType name="Max2Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max35NumericText">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="35"/>
+			<xs:pattern value="[0-9]{1,35}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max60Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="60"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max8Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="8"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="MessageIdentification1">
+		<xs:sequence>
+			<xs:element name="Id" type="Max35NumericText"/>
+			<xs:element name="CreDtTm" type="ISODateTime"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SystemStatus1">
+		<xs:sequence>
+			<xs:element name="Sts" type="Max2Text"/>
+			<xs:element name="VldtyDt" type="ISODate"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="TypeMarkCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="TM00"/>
+			<xs:enumeration value="TM01"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

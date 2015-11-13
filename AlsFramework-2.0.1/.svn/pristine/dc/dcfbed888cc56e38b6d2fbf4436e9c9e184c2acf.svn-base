@@ -1,0 +1,62 @@
+package com.als.ums.module.ums.act;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.als.frm.comm.dto.AppData;
+import com.als.mod.domain.UmsUserRole;
+import com.als.ums.module.ums.biz.UmsUserBIZ;
+import com.als.web.action.BasAction;
+import com.als.web.action.IAction;
+import com.als.web.action.type.ActionMetod;
+import com.als.web.action.type.SpringBean;
+
+public class UmsAuthorizeAction extends BasAction implements IAction  {
+	
+	@SpringBean
+	private UmsUserBIZ umUserBIZImpl;
+
+	@Override
+	public String getTransCode() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Object init(AppData appData) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@ActionMetod("get")
+	public Object getUmsAuthorize(AppData appData) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@ActionMetod("save")
+	public Object saveUmsAuthorize(AppData appData) {
+
+		
+		String id = appData.getValue("id").toString();
+		String unitId = appData.getValue("unitId").toString();
+		String products = appData.getValue("products").toString();
+		umUserBIZImpl.updateUserUnitAndProduct(id, unitId, products);
+		
+		String roles = appData.getValue("roles").toString();
+		String[] roleAry = roles.split(",");
+		List<UmsUserRole> roleList = new ArrayList<UmsUserRole>();
+		for (int i = 0, len = roleAry.length; i < len; i ++ ){
+			UmsUserRole r = new UmsUserRole();
+			r.setUserId(id);
+			r.setRoleId(roleAry[i]);
+			roleList.add(r);
+		}
+		umUserBIZImpl.updateUserRoles(id, roleList);
+		
+		return "success";
+	}
+	
+	
+
+}

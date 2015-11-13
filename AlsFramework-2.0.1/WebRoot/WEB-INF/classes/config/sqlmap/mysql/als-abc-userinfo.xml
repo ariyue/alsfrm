@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.als.prj.abc.module.user.dao.UmsUserInfoDAO">
+	
+	<insert id="addUserInfo" parameterType="com.als.mod.domain.UmsUserInfo">
+	  INSERT INTO ums_user_info(user_id,user_name,password) 
+	    VALUES(#{userId},#{userName},#{password})
+	</insert>
+</mapper>

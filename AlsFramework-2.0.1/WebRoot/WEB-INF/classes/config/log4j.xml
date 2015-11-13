@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+	<!-- 按日记录日志：info的信息,采用用开发阶段，正式运行时，建议关闭，以提高性能 -->
+	<appender name="ME_FILE_INFO" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="E:/log4j.log/app-info.log"/>
+		<param name="Threshold" value="ERROR"/>
+		<param name="Append" value="true"/>
+ 		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-4r %-5p %d{yyyy-MM-dd HH:mm:ssS} %c %m%n"/>
+		</layout>
+	</appender>
+	
+	<!-- 按日记录日志：error的信息 -->
+	<appender name="ME_FILE_ERROR" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="E:/log4j.log/app-error.log"/>
+		<param name="Threshold" value="ERROR"/>
+		<param name="Append" value="true"/>
+ 		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-4r %-5p %d{yyyy-MM-dd HH:mm:ssS} %c %m%n"/>
+		</layout>
+	</appender>
+	
+	
+	<!-- 其它信息输出，采用按文件大小进行分文件 -->
+    <appender name="ME_FILE_MUPDATE" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="E:/log4j.log/app-mupdate.log" />
+        <param name="MaxFileSize" value="500MB" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss}%m%n" />
+        </layout>
+    </appender>
+    
+	<!-- 控制台信息 -->
+	<appender name="ME_CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out"/>
+		<param name="Threshold" value="ERROR"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-5p %d{yyyy-MM-dd HH:mm:ssS} %c %m%n"/>
+		</layout>
+	</appender>
+	
+	<!-- 定义基本的输出级别和输现通道 -->
+	<root>
+		<level value="INFO"/>
+		<appender-ref ref="ME_FILE_INFO"/>
+		<appender-ref ref="ME_CONSOLE"/>
+	</root>
+	
+	<!-- 自定义个别输现通道和级别 -->
+	<logger name="ME_LOGGER_ERROR">
+        <level value="ERROR" />
+        <appender-ref ref="ME_FILE_ERROR"/>
+    </logger> 
+    
+    <!-- 自定义个别输现通道和级别 -->
+    <logger name="ME_LOGGER_MUPDATE">
+        <level value="ERROR" />
+        <appender-ref ref="ME_FILE_MUPDATE"/>
+    </logger>  
+
+</log4j:configuration>

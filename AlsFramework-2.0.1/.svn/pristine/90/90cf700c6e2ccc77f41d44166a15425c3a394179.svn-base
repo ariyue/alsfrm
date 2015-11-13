@@ -1,0 +1,280 @@
+<mod>
+	<vo class="com.als.mod.domain.FrmBasConstantVO">
+		<column field="id" title="编号" type="Max32Text" sortable="true" align="center"/>
+		<column field="name" title="常量名" type="Max32Text" sortable="true" align="center"/>
+		<column field="code" title="常量码" type="Max32Text" sortable="true" align="center"/>
+		<column field="itemCode" title="列码" type="Max32Text" sortable="true" align="center"/>
+		<column field="itemText" title="列名" type="Max32Text" sortable="true" align="center"/>
+	</vo>
+	
+	<vo class="com.als.mod.domain.FrmBasConstantVO2">
+		<column field="code" title="常量组代码" type="Max32Text" sortable="true" align="left"/>
+		<column field="name" title="常量组名称" type="Max32Text" sortable="true" align="left"/>
+	</vo>
+	<vo class="com.als.mod.domain.FrmBasConstantVO3">
+		<column field="id" title="ID" type="Max32Text" sortable="true" align="center" hidden="true"/>
+		<column field="code" title="常量组代码" type="Max32Text" sortable="true" align="left" hidden="true"/>
+		<column field="itemCode" title="常量值" type="Max32Text" sortable="true" align="center"/>
+		<column field="itemText" title="常量名称" type="Max32Text" sortable="true" align="center"/>
+		<column field="rowOrder" title="顺序" type="Max32Text" sortable="true" align="center"/>
+	</vo>
+	
+	<vo class="com.als.mod.domain.FrmBasCfgVO">
+		<column field="id" title="ID" type="Max32Text" sortable="true" align="center" hidden="true"/>
+		<column field="name" title="参数名称" type="Max32Text" sortable="true" align="center"/>
+		<column field="code" title="参数代码" type="Max32Text" sortable="true" align="center"/>
+		<column field="val" title="参数值" type="Max32Text" sortable="true" align="center"/>
+		<column field="entitySid" title="企业简码" type="Max32Text" sortable="true" align="center"/>
+		<column field="remark" title="备注" type="Max32Text" sortable="true" align="center"/>
+	</vo>
+	
+	<vo class="com.als.mod.domain.FrmBasSerialVO">
+		<column field="id" title="ID" type="Max32Text" sortable="true" align="center" hidden="true"/>
+		<column field="module" title="模块名称" type="Max32Text" sortable="true" align="center"/>
+		<column field="entitySid" title="企业简码" type="Max32Text" sortable="true" align="center"/>
+		<column field="cacheSize" title="缓存大小" type="Max32Text" sortable="true" align="center"/>
+		<column field="prefix" title="前辍" type="Max32Text" sortable="true" align="center"/>
+		<column field="subfix" title="后辍" type="Max32Text" sortable="true" align="center"/>
+	</vo>
+	
+	<vo class="com.als.mod.domain.FrmBasSerialItemVO">
+		<column field="id" title="ID" type="Max32Text" sortable="true" align="center" width="200" />
+		<column field="maxValue" title="当前缓存最大值" type="Max32Text" sortable="true" align="center"/>
+	</vo>
+	
+	
+	
+	<vo class="com.als.mod.domain.AbcUser">
+		<column field="id" title="编号" type="Max32Text" sortable="true" align="center" checkbox="true"/>
+		<column field="userName" title="用户名" type="Max32Text" sortable="true" align="center"/>
+		<column field="password" title="密码" type="Max32Text" sortable="true" align="center"/>
+		<column field="realName" title="姓名" type="Max32Text" sortable="true" align="center"/>
+		<column field="email" title="电子邮件" type="Max32Text" sortable="true" align="center"/>
+		<column field="userStatus" title="用户状态" type="Max32Text" sortable="true" align="center"/>
+		<column field="userType" title="用户类型" type="Max32Text" sortable="true" align="center"/>
+		<column field="isFirstLogon" title="首次登陆" type="Max32Text" sortable="true" align="center"/>
+		<column field="lastLogonTime" title="登陆时间" type="Max32Text" sortable="true" align="center"/>
+		<column field="lastLogonDate" title="登陆日期" type="Max32Text" sortable="true" align="center"/>
+		<column field="isManager" title="管理员" type="Max32Text" sortable="true" align="center"/>
+	</vo>
+	
+	
+	
+	<vo class="com.als.mod.domain.UmsProductVO">
+		<column field="id" title="编号" type="Max32Text" sortable="true" align="center" checkbox="true"/>
+		<column field="productName" title="产品名称" type="Max32Text" sortable="true" align="center"/>
+		<column field="menuId" title="菜单ID" type="Max32Text" sortable="true" align="center"/>
+		<column field="price" title="价格" type="Max32Text" sortable="true" align="center"/>
+		<column field="remark" title="说明" type="Max32Text" sortable="true" align="center"/>
+		<column field="transCode" title="交易码" type="Max32Text" sortable="true" align="center"/>
+		<column field="projectDate" title="立项日期" type="Max32Text" sortable="true" align="center"/>
+		<column field="developDate" title="开发日期" type="Max32Text" sortable="true" align="center"/>
+		<column field="onlineDate" title="上线日 期" type="Max32Text" sortable="true" align="center"/>
+	</vo>
+	
+	<vo class="com.als.mod.domain.UmsTransCodeVO">
+	    <column field="id" title="ums.transCode.id" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="transName" title="ums.transCode.transName" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="transCodeType" title="ums.transCode.transCodeType" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="rowOrder" title="ums.transCode.rowOrder" type="java.lang.Integer" sortable="true" align="center"/>
+	    <column field="pid" title="ums.transCode.pid" type="java.lang.String" sortable="true" align="center" />
+	    <column field="timeWin" title="ums.transCode.timeWin" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="remark" title="ums.transCode.remark" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="createRealName" title="ums.transCode.createRealName" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="createUserName" title="ums.transCode.createUserName" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="createDate" title="ums.transCode.createDate" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="createTime" title="ums.transCode.createTime" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="lastModifyRealName" title="ums.transCode.lastModifyRealName" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="lastModifyUserName" title="ums.transCode.lastModifyUserName" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="lastModifyDate" title="ums.transCode.lastModifyDate" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="lastModifyTime" title="ums.transCode.lastModifyTime" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="lastApproveOpiton" title="ums.transCode.lastApproveOpiton" type="java.lang.String" sortable="true" align="center"/>
+	</vo>
+	
+	<vo class="com.als.mod.domain.UmsRoleVO">
+	    <column field="id" title="ums.UmsRole.id" type="java.lang.String" sortable="true" align="center" hidden="true" />
+	    <column field="roleName" title="ums.UmsRole.roleName" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="roleType" title="ums.UmsRole.roleType" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="remark" title="ums.UmsRole.remark" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="entitySid" title="ums.UmsRole.entitySid" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="entitySidDisplay" title="ums.user.entitySid" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="createRealName" title="ums.UmsRole.createRealName" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="createUserName" title="ums.UmsRole.createUserName" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="createDate" title="ums.UmsRole.createDate" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="createTime" title="ums.UmsRole.createTime" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="lastModifyRealName" title="ums.UmsRole.lastModifyRealName" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="lastModifyUserName" title="ums.UmsRole.lastModifyUserName" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="lastModifyDate" title="ums.UmsRole.lastModifyDate" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="lastModifyTime" title="ums.UmsRole.lastModifyTime" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="lastApproveOption" title="ums.UmsRole.lastApproveOption" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="rowOrder" title="ums.UmsRole.rowOrder" type="java.lang.Integer" sortable="true" align="center"/>
+	</vo>
+	
+	<vo class="com.als.mod.domain.UmsRoleVO2">
+	    <column field="id" title="ums.UmsRole.id" type="java.lang.String" sortable="true" align="center" hidden="true" />
+	    <column field="roleName" title="ums.UmsRole.roleName" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="remark" title="ums.UmsRole.remark" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="entitySid" title="ums.UmsRole.entitySid" type="java.lang.String" sortable="true" align="center"/>
+	      <column field="roleType" title="ums.UmsRole.roleType" type="java.lang.String" sortable="true" align="center"/>
+	</vo>
+	
+	<vo class="com.als.mod.domain.UmsEntityVO">
+	    <column field="id" title="ums.entity.id" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="entityName" title="ums.entity.entityName" type="java.lang.String" sortable="true" align="center"  required="true"  maxlength="6" validType="rateCheck[0,1000]"  />
+	    <column field="entitySname" title="ums.entity.entitySname" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="entitySid" title="ums.entity.entitySid" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="maxUserCount" title="ums.entity.maxUserCount" type="java.lang.Integer" sortable="true" align="center"/>
+	    <column field="maxDiskSpace" title="ums.entity.maxDiskSpace" type="java.lang.Integer" sortable="true" align="center"/>
+	    <column field="email" title="ums.entity.email" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="entityStatus" title="ums.entity.entityStatus" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="entityStatusDisplay" title="ums.entity.entityStatus" type="java.lang.String" sortable="true" align="center"/>
+	    
+	    <column field="entityType" title="ums.entity.entityType" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="entityTypeDisplay" title="ums.entity.entityType" type="java.lang.String" sortable="true" align="center"/>
+	     
+	    <column field="openDate" title="ums.entity.openDate" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="openTime" title="ums.entity.openTime" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="bankAccountNo" title="ums.entity.bankAccountNo" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="bankCode" title="ums.entity.bankCode" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="validPeriod" title="ums.entity.validPeriod" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="createRealName" title="ums.entity.createRealName" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="createUserName" title="ums.entity.createUserName" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="createDate" title="ums.entity.createDate" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="createTime" title="ums.entity.createTime" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="lastModifyRealName" title="ums.entity.lastModifyRealName" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="lastModifyUserName" title="ums.entity.lastModifyUserName" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="lastModifyDate" title="ums.entity.lastModifyDate" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="lastModifyTime" title="ums.entity.lastModifyTime" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="lastApproveOption" title="ums.entity.lastApproveOption" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="smallLogo" title="ums.entity.smallLogo" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="bigLogo" title="ums.entity.bigLogo" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="deleteFlag" title="ums.entity.deleteFlag" type="java.lang.String" sortable="true" align="center"/>
+	</vo>
+	
+	
+	
+	<vo class="com.als.mod.domain.UmsEntityVO2">
+	    <column field="id" title="ums.entity.id" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="entityName" title="ums.entity.entityName" type="java.lang.String" sortable="true" align="center"  required="true"  maxlength="6" validType="rateCheck[0,1000]"  />
+	    <column field="entitySname" title="ums.entity.entitySname" type="java.lang.String" sortable="true" align="center"/>
+		<column field="entitySid" title="ums.entity.entitySid" type="java.lang.String" sortable="true" align="center"/>
+		
+	</vo>
+	
+	<vo class="com.als.mod.domain.UmsEntityVO3">
+	    <column field="id" title="ums.entity.id" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="entityName" title="ums.entity.entityName" type="java.lang.String" sortable="true" align="center"  required="true"  maxlength="6" validType="rateCheck[0,1000]"  />
+		<column field="entitySid" title="ums.entity.entitySid" type="java.lang.String" sortable="true" align="center"/>
+		
+	</vo>
+	
+	<vo class="com.als.mod.domain.UmsUnitVO">
+	    <column field="id" title="ums.unit.id" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="unitName" title="ums.unit.unitName" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="pid" title="ums.unit.pid" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="unitRelationship" title="ums.unit.unitRelationship" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="remark" title="ums.unit.remark" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="entitySid" title="ums.unit.entitySid" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="createRealName" title="ums.unit.createRealName" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="createUserName" title="ums.unit.createUserName" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="createDate" title="ums.unit.createDate" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="createTime" title="ums.unit.createTime" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="lastModifyRealName" title="ums.unit.lastModifyRealName" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="lastModifyUserName" title="ums.unit.lastModifyUserName" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="lastModifyDate" title="ums.unit.lastModifyDate" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="lastModifyTime" title="ums.unit.lastModifyTime" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="lastApproveOption" title="ums.unit.lastApproveOpiton" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="rowOrder" title="ums.unit.rowOrder" type="java.lang.Integer" sortable="true" align="center"/>
+	</vo>
+	
+	<vo class="com.als.mod.domain.UmsMenuVO">
+	    <column field="id" title="ums.menu.id" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="menuName" title="ums.menu.menuName" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="menuLevel" title="ums.menu.menuLevel" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="menuType" title="ums.menu.menuType" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="pid" title="ums.menu.pid" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="transCode" title="ums.menu.transCode" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="rowOrder" title="ums.menu.rowOrder" type="java.lang.Integer" sortable="true" align="center"/>
+	    <column field="icon" title="ums.menu.icon" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="remark" title="ums.menu.remark" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="menuUrl" title="ums.menu.menuUrl" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="tip" title="ums.menu.tip" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="enableFlag" title="ums.menu.enableFlag" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="createRealName" title="ums.menu.createRealName" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="createUserName" title="ums.menu.createUserName" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="createDate" title="ums.menu.createDate" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="createTime" title="ums.menu.createTime" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="lastModifyRealName" title="ums.menu.lastModifyRealName" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="lastModifyUserName" title="ums.menu.lastModifyUserName" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="lastModifyDate" title="ums.menu.lastModifyDate" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="lastModifyTime" title="ums.menu.lastModifyTime" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="lastApproveOption" title="ums.menu.lastApproveOption" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="leftShowFlag" title="ums.menu.leftShowFlag" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="complexFlag" title="ums.menu.complexFlag" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="viewNamespace" title="ums.menu.viewNamespace" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="exeFn" title="ums.menu.exeFn" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="params" title="ums.menu.params" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="menuStyle" title="ums.menu.menuStyle" type="java.lang.String" sortable="true" align="center"/>
+	</vo>
+	
+	<vo class="com.als.mod.domain.UmsUserVO">
+	    <column field="id" title="ums.user.id" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="userName" title="ums.user.userName" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="password" title="ums.user.password" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="realName" title="ums.user.realName" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="email" title="ums.user.email" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="userStatus" title="ums.user.userStatus" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="userType" title="ums.user.userType" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="isFirstLogon" title="ums.user.isFirstLogon" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="lastLogonTime" title="ums.user.lastLogonTime" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="lastLogonDate" title="ums.user.lastLogonDate" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="isManager" title="ums.user.isManager" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="bigPhoto" title="ums.user.bigPhoto" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="smallPhoto" title="ums.user.smallPhoto" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="entitySid" title="ums.user.entitySid" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="unitId" title="ums.user.unitId" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="lastModifyUserName" title="ums.user.lastModifyUserName" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="lastModifyDate" title="ums.user.lastModifyDate" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="lastModifyTime" title="ums.user.lastModifyTime" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="lastApproveOption" title="ums.user.lastApproveOption" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="createRealName" title="ums.user.createRealName" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="createUserName" title="ums.user.createUserName" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="createDate" title="ums.user.createDate" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="createTime" title="ums.user.createTime" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="lastModifyRealName" title="ums.user.lastModifyRealName" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="umProducts" title="ums.user.umProducts" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="skin" title="ums.user.skin" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="certSn" title="ums.user.certSn" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="certDn" title="ums.user.certDn" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="userLanguage" title="ums.user.userLanguage" type="java.lang.String" sortable="true" align="center"/>
+	    
+	</vo>
+	
+	<vo class="com.als.mod.domain.UmsEntityProductVO">
+	    <column field="id" title="ums.entityproduct.id" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="entitySid" title="ums.entityproduct.entitySid" type="java.lang.String" sortable="true" align="center"  hidden="true"/>
+	    <column field="productId" title="ums.entityproduct.productId" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="productName" title="ums.entityproduct.productName" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="validStartDate" title="ums.entityproduct.validStartDate" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="validEndDate" title="ums.entityproduct.validEndDate" type="java.lang.String" sortable="true" align="center"/>
+	    <column field="validDateType" title="ums.entityproduct.validDateType" type="java.lang.String" sortable="true" align="center" hidden="true"/>
+	    <column field="validDateTypeDisplay" title="ums.entityproduct.validDateType" type="java.lang.String" sortable="true" align="center"/>
+	    
+	    <column field="createRealName" title="ums.entityproduct.createRealName" type="java.lang.String" sortable="true" align="center"  hidden="true"/>
+	    <column field="createUserName" title="ums.entityproduct.createUserName" type="java.lang.String" sortable="true" align="center"  hidden="true"/>
+	    <column field="createDate" title="ums.entityproduct.createDate" type="java.lang.String" sortable="true" align="center"  hidden="true"/>
+	    <column field="createTime" title="ums.entityproduct.createTime" type="java.lang.String" sortable="true" align="center"  hidden="true"/>
+	    <column field="lastModifyRealName" title="ums.entityproduct.lastModifyRealName" type="java.lang.String" sortable="true" align="center"  hidden="true"/>
+	    <column field="lastModityUserName" title="ums.entityproduct.lastModifyUserName" type="java.lang.String" sortable="true" align="center"  hidden="true"/>
+	    <column field="lastModifyDate" title="ums.entityproduct.lastModifyDate" type="java.lang.String" sortable="true" align="center"  hidden="true"/>
+	    <column field="lastModifyTime" title="ums.entityproduct.lastModifyTime" type="java.lang.String" sortable="true" align="center"  hidden="true"/>
+	    <column field="lastApproveOpiton" title="ums.entityproduct.lastApproveOpiton" type="java.lang.String" sortable="true" align="center"  hidden="true"/>
+	    <column field="maxUserCount" title="ums.entityproduct.maxUserCount" type="java.lang.Integer" sortable="true" align="center"/>
+	</vo>
+		
+		
+		
+		
+		
+
+</mod>

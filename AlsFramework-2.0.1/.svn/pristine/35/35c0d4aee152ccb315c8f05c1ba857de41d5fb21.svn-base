@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Document" type="Document"/>
+	<xs:complexType name="CommercialDraftSettlementOnlineNotificationV01">
+		<xs:sequence>
+			<xs:element name="MsgId" type="MessageIdentification1"/>
+			<xs:element name="SttlmOnline" type="SettlementOnline1"/>
+			<xs:element name="HvpsSysInf" type="HvpsSystemDate1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Document">
+		<xs:sequence>
+			<xs:element name="CommercialDraftSettlementOnlineNotification" type="CommercialDraftSettlementOnlineNotificationV01"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ISODate">
+		<xs:restriction base="xs:date"/>
+	</xs:simpleType>
+	<xs:simpleType name="ISODateTime">
+		<xs:restriction base="xs:dateTime"/>
+	</xs:simpleType>
+	<xs:simpleType name="Max35NumericText">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="35"/>
+			<xs:pattern value="[0-9]{1,35}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max60Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="60"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="HvpsSystemDate1">
+		<xs:sequence>
+			<xs:element name="NxtSysDt" type="ISODate"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MessageIdentification1">
+		<xs:sequence>
+			<xs:element name="Id" type="Max35NumericText"/>
+			<xs:element name="CreDtTm" type="ISODateTime"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SettlementOnline1">
+		<xs:sequence>
+			<xs:element name="SttlmOnlineMrk" type="SettlementOnlineMarkCode"/>
+			<xs:element name="Rmrk" type="Max60Text"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="SettlementOnlineMarkCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SM00"/>
+			<xs:enumeration value="SM01"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

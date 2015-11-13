@@ -1,0 +1,925 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Document" type="Document"/>
+	<xs:complexType name="Account1">
+		<xs:sequence>
+			<xs:element name="Id" type="Max32AlphaNumericText"/>
+			<xs:element name="AcctSvcr" type="MaxMin12NumericText"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Account2">
+		<xs:sequence>
+			<xs:element name="AcctSvcr" type="MaxMin12NumericText"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="BanEndorsementMarkCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="EM00"/>
+			<xs:enumeration value="EM01"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Collateralization1">
+		<xs:sequence>
+			<xs:element name="Dt" type="ISODate"/>
+			<xs:element name="BtchNb" type="Max10NumericText" minOccurs="0"/>
+			<xs:element name="RmrkByPropsr" type="Max256Text" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommercialDraft2">
+		<xs:sequence>
+			<xs:element name="IdNb" type="MaxMin30NumericText"/>
+			<xs:element name="IsseAmt" type="CurrencyAndAmount"/>
+			<xs:element name="UcondlConsgnmtMrk" type="ConsignmentCode"/>
+			<xs:element name="TxlCtrctNb" type="Max30Text" minOccurs="0"/>
+			<xs:element name="InvcNb" type="Max30Text" minOccurs="0"/>
+			<xs:element name="BtchNb" type="Max10NumericText" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommercialDraftAcceptanceRequest1">
+		<xs:sequence>
+			<xs:element name="MsgId" type="MessageIdentification1"/>
+			<xs:element name="ComrclDrft" type="CommercialDraft5"/>
+			<xs:element name="Accptnc" type="CommercialDraft6"/>
+			<xs:element name="Drwr" type="Organisation11"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommercialDraft6">
+		<xs:sequence>
+			<xs:element name="UcondlConsgnmtMrk" type="ConsignmentCode"/>
+			<xs:element name="TxlCtrctNb" type="Max30Text" minOccurs="0"/>
+			<xs:element name="InvcNb" type="Max30Text" minOccurs="0"/>
+			<xs:element name="BtchNb" type="Max10NumericText" minOccurs="0"/>
+			<xs:element name="RmrkByPropsr" type="Max256Text" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommercialDraftBusiness1">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="Accptnc" type="CommercialDraft3"/>
+				<xs:element name="Issnc" type="CommercialDraft4"/>
+				<xs:element name="Endrsmt" type="Endorsement4"/>
+				<xs:element name="Dscnt" type="Discount4"/>
+				<xs:element name="RpdDscnt" type="RepurchasedDiscount4"/>
+				<xs:element name="RdscntWthComrclBk" type="RediscountWithCommercialBank4"/>
+				<xs:element name="RpdRdscntWthComrclBk" type="RepurchasedRediscountWithCommercialBank4"/>
+				<xs:element name="RdscntWthCntrlBk" type="RediscountWithCentralBank4"/>
+				<xs:element name="RpdRdscntWthCntrlBk" type="RepurchasedRediscountWithCentralBank4"/>
+				<xs:element name="CntrlBkSellgDrfts" type="CentralBankSellingDrafts4"/>
+				<xs:element name="Guarntee" type="Guarantee4"/>
+				<xs:element name="Collztn" type="Collateralization4"/>
+				<xs:element name="RpdCollztn" type="RepurchasedCollateralization4"/>
+				<xs:element name="Prsnttn" type="Presentation3"/>
+				<xs:element name="OvrduePrsnttn" type="OverduePresentation3"/>
+				<xs:element name="Rcrs" type="Recourse5"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommercialDraft1">
+		<xs:sequence>
+			<xs:element name="Tp" type="DraftTypeCode"/>
+			<xs:element name="IdNb" type="MaxMin30NumericText"/>
+			<xs:element name="IsseAmt" type="CurrencyAndAmount"/>
+			<xs:element name="IsseDt" type="ISODate"/>
+			<xs:element name="DueDt" type="ISODate"/>
+			<xs:element name="BanEndrsmtMk" type="BanEndorsementMarkCode"/>
+			<xs:element name="Rmrk" type="Max256Text" minOccurs="0"/>
+			<xs:element name="Drwr" type="Organisation4"/>
+			<xs:element name="Accptr" type="Organisation2"/>
+			<xs:element name="Pyee" type="Organisation2"/>
+			<xs:element name="ComrclDrftBiz" type="CommercialDraftBusiness1" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommercialDraft3">
+		<xs:sequence>
+			<xs:element name="Dt" type="ISODate"/>
+			<xs:element name="UcondlConsgnmtMrk" type="ConsignmentCode"/>
+			<xs:element name="UcondlPrmsMrk" type="ConsignmentCode"/>
+			<xs:element name="TxlCtrctNb" type="Max30Text" minOccurs="0"/>
+			<xs:element name="InvcNb" type="Max30Text" minOccurs="0"/>
+			<xs:element name="AccptncAgrmtNb" type="Max30Text" minOccurs="0"/>
+			<xs:element name="PrxySgntr" type="ProxySignatureCode"/>
+			<xs:element name="RmrkByPropsr" type="Max256Text" minOccurs="0"/>
+			<xs:element name="RmrkBySgnr" type="Max256Text" minOccurs="0"/>
+			<xs:element name="Accptr" type="Organisation4"/>
+			<xs:element name="Drwr" type="Organisation3"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ProxySignatureCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PS00"/>
+			<xs:enumeration value="PS01"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="CommercialDraft4">
+		<xs:sequence>
+			<xs:element name="Dt" type="ISODate"/>
+			<xs:element name="PrxySgntr" type="ProxySignatureCode"/>
+			<xs:element name="RmrkByPropsr" type="Max256Text" minOccurs="0"/>
+			<xs:element name="RmrkBySgnr" type="Max256Text" minOccurs="0"/>
+			<xs:element name="Pyee" type="Organisation5"/>
+			<xs:element name="Drwr" type="Organisation3"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommercialDraft5">
+		<xs:sequence>
+			<xs:element name="IdNb" type="MaxMin30NumericText"/>
+			<xs:element name="IsseAmt" type="CurrencyAndAmount"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Organisation1">
+		<xs:sequence>
+			<xs:element name="Role" type="RoleCode"/>
+			<xs:element name="Nm" type="Max60Text"/>
+			<xs:element name="CmonId" type="CmonCd"/>
+			<xs:element name="ElctrncSgntr" type="Max2000Text"/>
+			<xs:element name="Acct" type="Account1"/>
+			<xs:element name="Agcy" type="Organisation8" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Organisation2">
+		<xs:sequence>
+			<xs:element name="Nm" type="Max60Text"/>
+			<xs:element name="Acct" type="Account1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Organisation3">
+		<xs:sequence>
+			<xs:element name="Role" type="RoleCode"/>
+			<xs:element name="CmonId" type="CmonCd"/>
+			<xs:element name="Acct" type="Account1"/>
+			<xs:element name="Agcy" type="Organisation8" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Organisation11">
+		<xs:sequence>
+			<xs:element name="Role" type="RoleCode"/>
+			<xs:element name="CmonId" type="CmonCd"/>
+			<xs:element name="ElctrncSgntr" type="Max2000Text"/>
+			<xs:element name="Acct" type="Account1"/>
+			<xs:element name="Agcy" type="Organisation8" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Organisation4">
+		<xs:sequence>
+			<xs:element name="Role" type="RoleCode"/>
+			<xs:element name="Nm" type="Max60Text"/>
+			<xs:element name="CmonId" type="CmonCd"/>
+			<xs:element name="Acct" type="Account1"/>
+			<xs:element name="CdtRatgs" type="CreditRatings" minOccurs="0"/>
+			<xs:element name="CdtRatgAgcy" type="Max60Text" minOccurs="0"/>
+			<xs:element name="CdtRatgDueDt" type="ISODate" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="CreditRatings">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="3"/>
+			<xs:pattern value="[0-9a-zA-Z\+\-]{1,3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Organisation5">
+		<xs:sequence>
+			<xs:element name="Role" type="RoleCode"/>
+			<xs:element name="Nm" type="Max60Text"/>
+			<xs:element name="CmonId" type="CmonCd"/>
+			<xs:element name="Acct" type="Account1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Organisation6">
+		<xs:sequence>
+			<xs:element name="Role" type="RoleCode"/>
+			<xs:element name="Nm" type="Max60Text"/>
+			<xs:element name="CmonId" type="CmonCd"/>
+			<xs:element name="Acct" type="Account1"/>
+			<xs:element name="Adr" type="Max60Text"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Organisation7">
+		<xs:sequence>
+			<xs:element name="Nm" type="Max60Text"/>
+			<xs:element name="CmonId" type="CmonCd"/>
+			<xs:element name="Acct" type="Account1"/>
+			<xs:element name="Agcy" type="Organisation8" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Organisation8">
+		<xs:sequence>
+			<xs:element name="Acct" type="Account2"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Organisation10">
+		<xs:sequence>
+			<xs:element name="Role" type="RoleCode"/>
+			<xs:element name="Nm" type="Max60Text"/>
+			<xs:element name="CmonId" type="CmonCd"/>
+			<xs:element name="Acct" type="Account1"/>
+			<xs:element name="Agcy" type="Organisation8" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommercialDraftCollateralizationRequest1">
+		<xs:sequence>
+			<xs:element name="MsgId" type="MessageIdentification1"/>
+			<xs:element name="ComrclDrft" type="CommercialDraft5"/>
+			<xs:element name="Collztn" type="Collateralization1"/>
+			<xs:element name="CollztnPropsr" type="Organisation1"/>
+			<xs:element name="CollztnBk" type="Organisation2"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommercialDraftCommonTransmissionV01">
+		<xs:sequence>
+			<xs:element name="MsgId" type="MessageIdentification1"/>
+			<xs:element name="ReqInf" type="RequestInformation1"/>
+			<xs:element name="ComrclDrft" type="CommercialDraft1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommercialDraftDiscountRequest1">
+		<xs:sequence>
+			<xs:element name="MsgId" type="MessageIdentification1"/>
+			<xs:element name="ComrclDrft" type="CommercialDraft5"/>
+			<xs:element name="Dscnt" type="Discount1"/>
+			<xs:element name="AOAccnInf" type="Account1"/>
+			<xs:element name="DscntPropsr" type="Organisation1"/>
+			<xs:element name="DscntBk" type="Organisation2"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommercialDraftEndorsementRequest1">
+		<xs:sequence>
+			<xs:element name="MsgId" type="MessageIdentification1"/>
+			<xs:element name="ComrclDrft" type="CommercialDraft5"/>
+			<xs:element name="Endrsmt" type="Endorsement1"/>
+			<xs:element name="Endrsr" type="Organisation1"/>
+			<xs:element name="Endrsee" type="Organisation2"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommercialDraftGuaranteeRequest1">
+		<xs:sequence>
+			<xs:element name="MsgId" type="MessageIdentification1"/>
+			<xs:element name="ComrclDrft" type="CommercialDraft5"/>
+			<xs:element name="Guarntee" type="Guarantee1"/>
+			<xs:element name="Warntee" type="Organisation1"/>
+			<xs:element name="Guarntr" type="Organisation2"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommercialDraftIssuanceRequest1">
+		<xs:sequence>
+			<xs:element name="MsgId" type="MessageIdentification1"/>
+			<xs:element name="ComrclDrft" type="CommercialDraft5"/>
+			<xs:element name="Issnc" type="CommercialDraft7" minOccurs="0"/>
+			<xs:element name="Drwr" type="Organisation11"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommercialDraft7">
+		<xs:sequence>
+			<xs:element name="RmrkByPropsr" type="Max256Text"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommercialDraftOverduePresentationRequest1">
+		<xs:sequence>
+			<xs:element name="MsgId" type="MessageIdentification1"/>
+			<xs:element name="ComrclDrft" type="CommercialDraft5"/>
+			<xs:element name="OvrduePrsnttn" type="OverduePresentation1"/>
+			<xs:element name="DrftHldr" type="Organisation1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommercialDraftPresentationRequest1">
+		<xs:sequence>
+			<xs:element name="MsgId" type="MessageIdentification1"/>
+			<xs:element name="ComrclDrft" type="CommercialDraft5"/>
+			<xs:element name="Prsnttn" type="Presentation1"/>
+			<xs:element name="DrftHldr" type="Organisation1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommercialDraftRecourseNotification1">
+		<xs:sequence>
+			<xs:element name="MsgId" type="MessageIdentification1"/>
+			<xs:element name="ComrclDrft" type="CommercialDraft5"/>
+			<xs:element name="Rcrs" type="Recourse1"/>
+			<xs:element name="Rcrsr" type="Organisation1"/>
+			<xs:element name="RcvgPrsnOfRcrs" type="Organisation7"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommercialDraftRediscountWithCentralBankRequest1">
+		<xs:sequence>
+			<xs:element name="MsgId" type="MessageIdentification1"/>
+			<xs:element name="ComrclDrft" type="CommercialDraft5"/>
+			<xs:element name="RdscntWthCntrlBk" type="RediscountWithCentralBank1"/>
+			<xs:element name="RqstngBkOfRdscntWthCntrlBk" type="Organisation1"/>
+			<xs:element name="RdscntWthCntrlBkSys" type="Organisation2"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommercialDraftRediscountWithCommercialBankRequest1">
+		<xs:sequence>
+			<xs:element name="MsgId" type="MessageIdentification1"/>
+			<xs:element name="ComrclDrft" type="CommercialDraft5"/>
+			<xs:element name="RdscntWthComrclBk" type="RediscountWithCommercialBank1"/>
+			<xs:element name="RqstngBkOfRdscntWthComrclBk" type="Organisation1"/>
+			<xs:element name="RcvgBkOfRdscntWthComrclBk" type="Organisation2"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommercialDraftRepurchasedCollateralizationRequest1">
+		<xs:sequence>
+			<xs:element name="MsgId" type="MessageIdentification1"/>
+			<xs:element name="ComrclDrft" type="CommercialDraft5"/>
+			<xs:element name="RpdCollztn" type="RepurchasedCollateralization1"/>
+			<xs:element name="CollztnBk" type="Organisation11"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommercialDraftRepurchasedDiscountRequest1">
+		<xs:sequence>
+			<xs:element name="MsgId" type="MessageIdentification1"/>
+			<xs:element name="ComrclDrft" type="CommercialDraft5"/>
+			<xs:element name="RpdDscnt" type="RepurchasedDiscount1"/>
+			<xs:element name="DscntBk" type="Organisation11"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommercialDraftRepurchasedRediscountWithCentralBankRequest1">
+		<xs:sequence>
+			<xs:element name="MsgId" type="MessageIdentification1"/>
+			<xs:element name="ComrclDrft" type="CommercialDraft5"/>
+			<xs:element name="RpdRdscntWthCntrlBk" type="RepurchasedRediscountWithCentralBank1"/>
+			<xs:element name="RdscntWthCntrlBkSys" type="Organisation11"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommercialDraftRepurchasedRediscountWithCommercialBankRequest1">
+		<xs:sequence>
+			<xs:element name="MsgId" type="MessageIdentification1"/>
+			<xs:element name="ComrclDrft" type="CommercialDraft5"/>
+			<xs:element name="RpdRdscntWthComrclBk" type="RepurchasedRediscountWithCommercialBank1"/>
+			<xs:element name="OrgnlRcvgBkOfRdscntWthComrclBk" type="Organisation11"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ConsignmentCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="CC00"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CurrencyAndAmount_SimpleType">
+		<xs:restriction base="xs:decimal">
+			<xs:pattern value="(\d{1,18})|(\d{1,18}\.)|(\d{1,17}\.\d{0,1})|(\d{1,16}\.\d{0,2})|(\.\d{1,2})"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="CurrencyAndAmount">
+		<xs:simpleContent>
+			<xs:extension base="CurrencyAndAmount_SimpleType">
+				<xs:attribute name="Ccy" type="CurrencyCode" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="CurrencyCode">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="CNY"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Discount1">
+		<xs:sequence>
+			<xs:element name="RpdMk" type="RepurchasedMarkCode"/>
+			<xs:element name="Dt" type="ISODate"/>
+			<xs:element name="IntrstRate" type="PercentageRate"/>
+			<xs:element name="Amt" type="CurrencyAndAmount"/>
+			<xs:element name="BanEndrsmtMk" type="BanEndorsementMarkCode"/>
+			<xs:element name="SttlmMk" type="SettlementMarkCode"/>
+			<xs:element name="RpdOpenDt" type="ISODate" minOccurs="0"/>
+			<xs:element name="RpdDueDt" type="ISODate" minOccurs="0"/>
+			<xs:element name="RpdIntrstRate" type="PercentageRate" minOccurs="0"/>
+			<xs:element name="RpdAmt" type="CurrencyAndAmount" minOccurs="0"/>
+			<xs:element name="TxlCtrctNb" type="Max30Text" minOccurs="0"/>
+			<xs:element name="InvcNb" type="Max30Text" minOccurs="0"/>
+			<xs:element name="BtchNb" type="Max10NumericText" minOccurs="0"/>
+			<xs:element name="RmrkByPropsr" type="Max256Text" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Document">
+		<xs:sequence>
+			<xs:element name="CommercialDraftCommonTransmission" type="CommercialDraftCommonTransmissionV01"/>
+			<xs:element name="PtcptSgntr" type="Signature"/>
+			<xs:element name="CntrlBkSgntr" type="Signature"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="DraftTypeCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AC01"/>
+			<xs:enumeration value="AC02"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Signature">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="2000"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Endorsement1">
+		<xs:sequence>
+			<xs:element name="Dt" type="ISODate"/>
+			<xs:element name="BanEndrsmtMk" type="BanEndorsementMarkCode"/>
+			<xs:element name="RmrkByPropsr" type="Max256Text" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Guarantee1">
+		<xs:sequence>
+			<xs:element name="Dt" type="ISODate"/>
+			<xs:element name="BtchNb" type="Max10NumericText" minOccurs="0"/>
+			<xs:element name="RmrkByPropsr" type="Max256Text" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ISODate">
+		<xs:restriction base="xs:date"/>
+	</xs:simpleType>
+	<xs:simpleType name="ISODateTime">
+		<xs:restriction base="xs:dateTime"/>
+	</xs:simpleType>
+	<xs:simpleType name="Max2000Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="2000"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CmonCd">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="10"/>
+			<xs:pattern value="[\-a-zA-Z0-9]{1,10}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max30Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="30"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max32AlphaNumericText">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="32"/>
+			<xs:pattern value="[a-zA-Z0-9]{1,32}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max60Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="60"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max256Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="256"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max35NumericText">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="35"/>
+			<xs:pattern value="[0-9]{1,35}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max3Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max10NumericText">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="10"/>
+			<xs:pattern value="[0-9]{1,10}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MaxMin12NumericText">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="12"/>
+			<xs:maxLength value="12"/>
+			<xs:pattern value="[0-9]{1,12}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MaxMin30NumericText">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="30"/>
+			<xs:maxLength value="30"/>
+			<xs:pattern value="[0-9]{1,30}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="MessageIdentification1">
+		<xs:sequence>
+			<xs:element name="Id" type="Max35NumericText"/>
+			<xs:element name="CreDtTm" type="ISODateTime"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OverduePresentation1">
+		<xs:sequence>
+			<xs:element name="ApplDt" type="ISODate"/>
+			<xs:element name="Amt" type="CurrencyAndAmount"/>
+			<xs:element name="Rsn" type="Max60Text"/>
+			<xs:element name="SttlmMk" type="SettlementMarkCode"/>
+			<xs:element name="PrxyPropstn" type="ProxyPropositionCode"/>
+			<xs:element name="RmrkByPropsr" type="Max256Text" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OverduePresentation3">
+		<xs:sequence>
+			<xs:element name="ApplDt" type="ISODate"/>
+			<xs:element name="Dt" type="ISODate"/>
+			<xs:element name="SgnUpMk" type="SignUpMarkCode"/>
+			<xs:element name="Amt" type="CurrencyAndAmount"/>
+			<xs:element name="Rsn" type="Max60Text"/>
+			<xs:element name="SttlmMk" type="SettlementMarkCode"/>
+			<xs:element name="DshnrCd" type="DishonorCode" minOccurs="0"/>
+			<xs:element name="DshnrRsn" type="Max60Text" minOccurs="0"/>
+			<xs:element name="PrxyPropstn" type="ProxyPropositionCode"/>
+			<xs:element name="PrxySgntr" type="ProxySignatureCode"/>
+			<xs:element name="RmrkByPropsr" type="Max256Text" minOccurs="0"/>
+			<xs:element name="RmrkBySgnr" type="Max256Text" minOccurs="0"/>
+			<xs:element name="DrftHldr" type="Organisation10"/>
+			<xs:element name="PayBk" type="Organisation10"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="DishonorCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DC00"/>
+			<xs:enumeration value="DC01"/>
+			<xs:enumeration value="DC02"/>
+			<xs:enumeration value="DC03"/>
+			<xs:enumeration value="DC04"/>
+			<xs:enumeration value="DC05"/>
+			<xs:enumeration value="DC06"/>
+			<xs:enumeration value="DC07"/>
+			<xs:enumeration value="DC08"/>
+			<xs:enumeration value="DC09"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PercentageRate">
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="10"/>
+			<xs:totalDigits value="11"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Presentation1">
+		<xs:sequence>
+			<xs:element name="ApplDt" type="ISODate"/>
+			<xs:element name="Amt" type="CurrencyAndAmount"/>
+			<xs:element name="SttlmMk" type="SettlementMarkCode"/>
+			<xs:element name="PrxyPropstn" type="ProxyPropositionCode"/>
+			<xs:element name="RmrkByPropsr" type="Max256Text" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ProxyPropositionCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PP00"/>
+			<xs:enumeration value="PP01"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Presentation3">
+		<xs:sequence>
+			<xs:element name="ApplDt" type="ISODate"/>
+			<xs:element name="Dt" type="ISODate"/>
+			<xs:element name="SgnUpMk" type="SignUpMarkCode"/>
+			<xs:element name="Amt" type="CurrencyAndAmount"/>
+			<xs:element name="SttlmMk" type="SettlementMarkCode"/>
+			<xs:element name="DshnrCd" type="DishonorCode" minOccurs="0"/>
+			<xs:element name="DshnrRsn" type="Max60Text" minOccurs="0"/>
+			<xs:element name="PrxyPropstn" type="ProxyPropositionCode"/>
+			<xs:element name="PrxySgntr" type="ProxySignatureCode"/>
+			<xs:element name="RmrkByPropsr" type="Max256Text" minOccurs="0"/>
+			<xs:element name="RmrkBySgnr" type="Max256Text" minOccurs="0"/>
+			<xs:element name="DrftHldr" type="Organisation10"/>
+			<xs:element name="PayBk" type="Organisation10"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="SignUpMarkCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SU00"/>
+			<xs:enumeration value="SU01"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Recourse1">
+		<xs:sequence>
+			<xs:element name="Tp" type="RecourseTypeCode"/>
+			<xs:element name="ApplDt" type="ISODate"/>
+			<xs:element name="ReqAmt" type="CurrencyAndAmount"/>
+			<xs:element name="RcrsRsnCd" type="RecourseReasonCode" minOccurs="0"/>
+			<xs:element name="RcrsRmrk" type="Max256Text" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="RecourseReasonCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="RC00"/>
+			<xs:enumeration value="RC01"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Recourse5">
+		<xs:sequence>
+			<xs:element name="Tp" type="RecourseTypeCode"/>
+			<xs:element name="ApplDt" type="ISODate"/>
+			<xs:element name="Dt" type="ISODate"/>
+			<xs:element name="ReqAmt" type="CurrencyAndAmount"/>
+			<xs:element name="Amt" type="CurrencyAndAmount"/>
+			<xs:element name="RcrsRsnCd" type="RecourseReasonCode" minOccurs="0"/>
+			<xs:element name="PrxySgntr" type="ProxySignatureCode"/>
+			<xs:element name="RcrsRmrk" type="Max256Text" minOccurs="0"/>
+			<xs:element name="RcrsAgrmtRmrk" type="Max256Text" minOccurs="0"/>
+			<xs:element name="RmrkBySgnr" type="Max256Text" minOccurs="0"/>
+			<xs:element name="Rcrsr" type="Organisation10"/>
+			<xs:element name="RcvgPrsnOfRcrs" type="Organisation10"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="RecourseTypeCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="RT00"/>
+			<xs:enumeration value="RT01"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="RediscountWithCentralBank1">
+		<xs:sequence>
+			<xs:element name="RpdMk" type="RepurchasedMarkCode"/>
+			<xs:element name="Dt" type="ISODate"/>
+			<xs:element name="IntrstRate" type="PercentageRate"/>
+			<xs:element name="Amt" type="CurrencyAndAmount"/>
+			<xs:element name="BanEndrsmtMk" type="BanEndorsementMarkCode"/>
+			<xs:element name="SttlmMk" type="SettlementMarkCode"/>
+			<xs:element name="RpdOpenDt" type="ISODate" minOccurs="0"/>
+			<xs:element name="RpdDueDt" type="ISODate" minOccurs="0"/>
+			<xs:element name="RpdIntrstRate" type="PercentageRate" minOccurs="0"/>
+			<xs:element name="RpdAmt" type="CurrencyAndAmount" minOccurs="0"/>
+			<xs:element name="BtchNb" type="Max10NumericText" minOccurs="0"/>
+			<xs:element name="RmrkByPropsr" type="Max256Text" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RediscountWithCommercialBank1">
+		<xs:sequence>
+			<xs:element name="RpdMk" type="RepurchasedMarkCode"/>
+			<xs:element name="Dt" type="ISODate"/>
+			<xs:element name="IntrstRate" type="PercentageRate"/>
+			<xs:element name="Amt" type="CurrencyAndAmount"/>
+			<xs:element name="BanEndrsmtMk" type="BanEndorsementMarkCode"/>
+			<xs:element name="SttlmMk" type="SettlementMarkCode"/>
+			<xs:element name="RpdOpenDt" type="ISODate" minOccurs="0"/>
+			<xs:element name="RpdDueDt" type="ISODate" minOccurs="0"/>
+			<xs:element name="RpdIntrstRate" type="PercentageRate" minOccurs="0"/>
+			<xs:element name="RpdAmt" type="CurrencyAndAmount" minOccurs="0"/>
+			<xs:element name="BtchNb" type="Max10NumericText" minOccurs="0"/>
+			<xs:element name="RmrkByPropsr" type="Max256Text" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RepurchasedCollateralization1">
+		<xs:sequence>
+			<xs:element name="Dt" type="ISODate"/>
+			<xs:element name="BtchNb" type="Max10NumericText" minOccurs="0"/>
+			<xs:element name="RmrkByPropsr" type="Max256Text" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RepurchasedDiscount1">
+		<xs:sequence>
+			<xs:element name="Dt" type="ISODate"/>
+			<xs:element name="IntrstRate" type="PercentageRate"/>
+			<xs:element name="Amt" type="CurrencyAndAmount"/>
+			<xs:element name="BanEndrsmtMk" type="BanEndorsementMarkCode"/>
+			<xs:element name="SttlmMk" type="SettlementMarkCode"/>
+			<xs:element name="BtchNb" type="Max10NumericText" minOccurs="0"/>
+			<xs:element name="RmrkByPropsr" type="Max256Text" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="RepurchasedMarkCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="RM00"/>
+			<xs:enumeration value="RM01"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="RepurchasedRediscountWithCentralBank1">
+		<xs:sequence>
+			<xs:element name="Dt" type="ISODate"/>
+			<xs:element name="IntrstRate" type="PercentageRate"/>
+			<xs:element name="Amt" type="CurrencyAndAmount"/>
+			<xs:element name="BanEndrsmtMk" type="BanEndorsementMarkCode"/>
+			<xs:element name="SttlmMk" type="SettlementMarkCode"/>
+			<xs:element name="BtchNb" type="Max10NumericText" minOccurs="0"/>
+			<xs:element name="RmrkByPropsr" type="Max256Text" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RepurchasedRediscountWithCommercialBank1">
+		<xs:sequence>
+			<xs:element name="Dt" type="ISODate"/>
+			<xs:element name="IntrstRate" type="PercentageRate"/>
+			<xs:element name="Amt" type="CurrencyAndAmount"/>
+			<xs:element name="BanEndrsmtMk" type="BanEndorsementMarkCode"/>
+			<xs:element name="SttlmMk" type="SettlementMarkCode"/>
+			<xs:element name="BtchNb" type="Max10NumericText" minOccurs="0"/>
+			<xs:element name="RmrkByPropsr" type="Max256Text" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommercialDraftCentralBankSellingDraftsRequestV01">
+		<xs:sequence>
+			<xs:element name="MsgId" type="MessageIdentification1"/>
+			<xs:element name="ComrclDrft" type="CommercialDraft5"/>
+			<xs:element name="CntrlBkSellgDrfts" type="CentralBankSellingDrafts1"/>
+			<xs:element name="SellrInf" type="Organisation1"/>
+			<xs:element name="BuyrInf" type="Organisation2"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CentralBankSellingDrafts1">
+		<xs:sequence>
+			<xs:element name="Dt" type="ISODate"/>
+			<xs:element name="IntrstRate" type="PercentageRate"/>
+			<xs:element name="Amt" type="CurrencyAndAmount"/>
+			<xs:element name="BanEndrsmtMk" type="BanEndorsementMarkCode"/>
+			<xs:element name="SttlmMk" type="SettlementMarkCode"/>
+			<xs:element name="BtchNb" type="Max10NumericText" minOccurs="0"/>
+			<xs:element name="RmrkByPropsr" type="Max256Text" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CentralBankSellingDrafts4">
+		<xs:sequence>
+			<xs:element name="Dt" type="ISODate"/>
+			<xs:element name="IntrstRate" type="PercentageRate"/>
+			<xs:element name="Amt" type="CurrencyAndAmount"/>
+			<xs:element name="BanEndrsmtMk" type="BanEndorsementMarkCode"/>
+			<xs:element name="SttlmMk" type="SettlementMarkCode"/>
+			<xs:element name="PrxySgntr" type="ProxySignatureCode"/>
+			<xs:element name="RmrkByPropsr" type="Max256Text" minOccurs="0"/>
+			<xs:element name="RmrkBySgnr" type="Max256Text" minOccurs="0"/>
+			<xs:element name="SellrInf" type="Organisation10"/>
+			<xs:element name="BuyrInf" type="Organisation5"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Discount4">
+		<xs:sequence>
+			<xs:element name="RpdMk" type="RepurchasedMarkCode"/>
+			<xs:element name="Dt" type="ISODate"/>
+			<xs:element name="IntrstRate" type="PercentageRate"/>
+			<xs:element name="Amt" type="CurrencyAndAmount"/>
+			<xs:element name="BanEndrsmtMk" type="BanEndorsementMarkCode"/>
+			<xs:element name="SttlmMk" type="SettlementMarkCode"/>
+			<xs:element name="RpdOpenDt" type="ISODate" minOccurs="0"/>
+			<xs:element name="RpdDueDt" type="ISODate" minOccurs="0"/>
+			<xs:element name="RpdIntrstRate" type="PercentageRate" minOccurs="0"/>
+			<xs:element name="RpdAmt" type="CurrencyAndAmount" minOccurs="0"/>
+			<xs:element name="TxlCtrctNb" type="Max30Text" minOccurs="0"/>
+			<xs:element name="InvcNb" type="Max30Text" minOccurs="0"/>
+			<xs:element name="DscntAgrmtNb" type="Max30Text" minOccurs="0"/>
+			<xs:element name="PrxySgntr" type="ProxySignatureCode"/>
+			<xs:element name="RmrkByPropsr" type="Max256Text" minOccurs="0"/>
+			<xs:element name="RmrkBySgnr" type="Max256Text" minOccurs="0"/>
+			<xs:element name="AOAccnInf" type="Account1"/>
+			<xs:element name="DscntPropsr" type="Organisation10"/>
+			<xs:element name="DscntBk" type="Organisation5"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Endorsement4">
+		<xs:sequence>
+			<xs:element name="Dt" type="ISODate"/>
+			<xs:element name="BanEndrsmtMk" type="BanEndorsementMarkCode"/>
+			<xs:element name="PrxySgntr" type="ProxySignatureCode"/>
+			<xs:element name="RmrkByPropsr" type="Max256Text" minOccurs="0"/>
+			<xs:element name="RmrkBySgnr" type="Max256Text" minOccurs="0"/>
+			<xs:element name="Endrsr" type="Organisation10"/>
+			<xs:element name="Endrsee" type="Organisation5"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Guarantee4">
+		<xs:sequence>
+			<xs:element name="Dt" type="ISODate"/>
+			<xs:element name="PrxySgntr" type="ProxySignatureCode"/>
+			<xs:element name="RmrkByPropsr" type="Max256Text" minOccurs="0"/>
+			<xs:element name="RmrkBySgnr" type="Max256Text" minOccurs="0"/>
+			<xs:element name="Warntee" type="Organisation10"/>
+			<xs:element name="Guarntr" type="Organisation6"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RediscountWithCentralBank4">
+		<xs:sequence>
+			<xs:element name="RpdMk" type="RepurchasedMarkCode"/>
+			<xs:element name="Dt" type="ISODate"/>
+			<xs:element name="IntrstRate" type="PercentageRate"/>
+			<xs:element name="Amt" type="CurrencyAndAmount"/>
+			<xs:element name="BanEndrsmtMk" type="BanEndorsementMarkCode"/>
+			<xs:element name="SttlmMk" type="SettlementMarkCode"/>
+			<xs:element name="RpdOpenDt" type="ISODate" minOccurs="0"/>
+			<xs:element name="RpdDueDt" type="ISODate" minOccurs="0"/>
+			<xs:element name="RpdIntrstRate" type="PercentageRate" minOccurs="0"/>
+			<xs:element name="RpdAmt" type="CurrencyAndAmount" minOccurs="0"/>
+			<xs:element name="PrxySgntr" type="ProxySignatureCode"/>
+			<xs:element name="RmrkByPropsr" type="Max256Text" minOccurs="0"/>
+			<xs:element name="RmrkBySgnr" type="Max256Text" minOccurs="0"/>
+			<xs:element name="RqstngBkOfRpdRdscntWthCntrlBk" type="Organisation10"/>
+			<xs:element name="RdscntWthCntrlBkSys" type="Organisation5"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RediscountWithCommercialBank4">
+		<xs:sequence>
+			<xs:element name="RpdMk" type="RepurchasedMarkCode"/>
+			<xs:element name="Dt" type="ISODate"/>
+			<xs:element name="IntrstRate" type="PercentageRate"/>
+			<xs:element name="Amt" type="CurrencyAndAmount"/>
+			<xs:element name="BanEndrsmtMk" type="BanEndorsementMarkCode"/>
+			<xs:element name="SttlmMk" type="SettlementMarkCode"/>
+			<xs:element name="RpdOpenDt" type="ISODate" minOccurs="0"/>
+			<xs:element name="RpdDueDt" type="ISODate" minOccurs="0"/>
+			<xs:element name="RpdIntrstRate" type="PercentageRate" minOccurs="0"/>
+			<xs:element name="RpdAmt" type="CurrencyAndAmount" minOccurs="0"/>
+			<xs:element name="PrxySgntr" type="ProxySignatureCode"/>
+			<xs:element name="RmrkByPropsr" type="Max256Text" minOccurs="0"/>
+			<xs:element name="RmrkBySgnr" type="Max256Text" minOccurs="0"/>
+			<xs:element name="RqstngBkOfRdscntWthComrclBk" type="Organisation10"/>
+			<xs:element name="RcvgBkOfRdscntWthComrclBk" type="Organisation5"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RepurchasedCollateralization4">
+		<xs:sequence>
+			<xs:element name="Dt" type="ISODate"/>
+			<xs:element name="PrxySgntr" type="ProxySignatureCode"/>
+			<xs:element name="RmrkByPropsr" type="Max256Text" minOccurs="0"/>
+			<xs:element name="RmrkBySgnr" type="Max256Text" minOccurs="0"/>
+			<xs:element name="CollztnBk" type="Organisation10"/>
+			<xs:element name="OrgnlCollztnProPsr" type="Organisation10"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RepurchasedDiscount4">
+		<xs:sequence>
+			<xs:element name="Dt" type="ISODate"/>
+			<xs:element name="IntrstRate" type="PercentageRate"/>
+			<xs:element name="Amt" type="CurrencyAndAmount"/>
+			<xs:element name="BanEndrsmtMk" type="BanEndorsementMarkCode"/>
+			<xs:element name="SttlmMk" type="SettlementMarkCode"/>
+			<xs:element name="PrxySgntr" type="ProxySignatureCode"/>
+			<xs:element name="RmrkByPropsr" type="Max256Text" minOccurs="0"/>
+			<xs:element name="RmrkBySgnr" type="Max256Text" minOccurs="0"/>
+			<xs:element name="DscntBk" type="Organisation10"/>
+			<xs:element name="OrgnlDscntPropsr" type="Organisation10"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RepurchasedRediscountWithCentralBank4">
+		<xs:sequence>
+			<xs:element name="Dt" type="ISODate"/>
+			<xs:element name="IntrstRate" type="PercentageRate"/>
+			<xs:element name="Amt" type="CurrencyAndAmount"/>
+			<xs:element name="BanEndrsmtMk" type="BanEndorsementMarkCode"/>
+			<xs:element name="SttlmMk" type="SettlementMarkCode"/>
+			<xs:element name="PrxySgntr" type="ProxySignatureCode"/>
+			<xs:element name="RmrkByPropsr" type="Max256Text" minOccurs="0"/>
+			<xs:element name="RmrkBySgnr" type="Max256Text" minOccurs="0"/>
+			<xs:element name="OrgnlRqstngBkOfRdscntWthCntrlBk" type="Organisation10"/>
+			<xs:element name="RdscntWthCntrlBkSys" type="Organisation10"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RepurchasedRediscountWithCommercialBank4">
+		<xs:sequence>
+			<xs:element name="Dt" type="ISODate"/>
+			<xs:element name="IntrstRate" type="PercentageRate"/>
+			<xs:element name="Amt" type="CurrencyAndAmount"/>
+			<xs:element name="BanEndrsmtMk" type="BanEndorsementMarkCode"/>
+			<xs:element name="SttlmMk" type="SettlementMarkCode"/>
+			<xs:element name="PrxySgntr" type="ProxySignatureCode"/>
+			<xs:element name="RmrkByPropsr" type="Max256Text" minOccurs="0"/>
+			<xs:element name="RmrkBySgnr" type="Max256Text" minOccurs="0"/>
+			<xs:element name="OrgnlRqstngBkOfRdscntWthComrclBk" type="Organisation10"/>
+			<xs:element name="OrgnlRcvgBkOfRdscntWthComrclBk" type="Organisation10"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Collateralization4">
+		<xs:sequence>
+			<xs:element name="Dt" type="ISODate"/>
+			<xs:element name="PrxySgntr" type="ProxySignatureCode"/>
+			<xs:element name="RmrkByPropsr" type="Max256Text" minOccurs="0"/>
+			<xs:element name="RmrkBySgnr" type="Max256Text" minOccurs="0"/>
+			<xs:element name="CollztnProPsr" type="Organisation10"/>
+			<xs:element name="CollztnBk" type="Organisation5"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RequestInformation1">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="CommercialDraftAcceptanceRequest" type="CommercialDraftAcceptanceRequest1"/>
+				<xs:element name="CommercialDraftIssuanceRequest" type="CommercialDraftIssuanceRequest1"/>
+				<xs:element name="CommercialDraftEndorsementRequest" type="CommercialDraftEndorsementRequest1"/>
+				<xs:element name="CommercialDraftDiscountRequest" type="CommercialDraftDiscountRequest1"/>
+				<xs:element name="CommercialDraftRepurchasedDiscountRequest" type="CommercialDraftRepurchasedDiscountRequest1"/>
+				<xs:element name="CommercialDraftRediscountWithCommercialBankRequest" type="CommercialDraftRediscountWithCommercialBankRequest1"/>
+				<xs:element name="CommercialDraftRepurchasedRediscountWithCommercialBankRequest" type="CommercialDraftRepurchasedRediscountWithCommercialBankRequest1"/>
+				<xs:element name="CommercialDraftRediscountWithCentralBankRequest" type="CommercialDraftRediscountWithCentralBankRequest1"/>
+				<xs:element name="CommercialDraftRepurchasedRediscountWithCentralBankRequest" type="CommercialDraftRepurchasedRediscountWithCentralBankRequest1"/>
+				<xs:element name="CommercialDraftCentralBankSellingDraftsRequest" type="CommercialDraftCentralBankSellingDraftsRequestV01"/>
+				<xs:element name="CommercialDraftGuaranteeRequest" type="CommercialDraftGuaranteeRequest1"/>
+				<xs:element name="CommercialDraftCollateralizationRequest" type="CommercialDraftCollateralizationRequest1"/>
+				<xs:element name="CommercialDraftRepurchasedCollateralizationRequest" type="CommercialDraftRepurchasedCollateralizationRequest1"/>
+				<xs:element name="CommercialDraftPresentationRequest" type="CommercialDraftPresentationRequest1"/>
+				<xs:element name="CommercialDraftOverduePresentationRequest" type="CommercialDraftOverduePresentationRequest1"/>
+				<xs:element name="CommercialDraftRecourseNotification" type="CommercialDraftRecourseNotification1"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="RoleCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="RC00"/>
+			<xs:enumeration value="RC01"/>
+			<xs:enumeration value="RC02"/>
+			<xs:enumeration value="RC03"/>
+			<xs:enumeration value="RC04"/>
+			<xs:enumeration value="RC05"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SettlementMarkCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SM00"/>
+			<xs:enumeration value="SM01"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

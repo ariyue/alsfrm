@@ -1,0 +1,22 @@
+package com.als.ums.module.ums.biz;
+
+import com.als.mod.domain.UmsUser;
+
+public interface UmsUserBIZ {
+
+	/**
+	 * 
+	 * @param entity
+	 * @return
+	 */
+	public UmsUser addEntity(UmsUser entity);
+	
+	/**
+	 * 
+	 * @param entity
+	 * @return
+	 */
+	public UmsUser modifyEntity(UmsUser entity);
+	
+	public UmsUser removeEntity(UmsUser entity);
+}

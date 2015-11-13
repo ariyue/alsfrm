@@ -1,0 +1,35 @@
+
+-----------------------------------------------------------------
+包命名规范：
+例如：
+公司名:als
+项目名:prj
+模块名:abc
+模块中的功能：user
+
+原码包：
+公司名-模块名-版本号,如:als-abc-2.0.0
+
+包命名:
+com.公司名.项目名.模块名
+如：
+com.als.prj.abc  模块初始包
+com.als.prj.abc.comm   通用
+com.als.prj.abc.comm.util 工具包
+com.als.prj.abc.comm.constant  常量
+com.als.prj.abc.comm.component 组件
+com.als.prj.abc.comm.plm 小平台
+
+com.als.prj.abc.module 模块
+com.als.prj.abc.module.user 功能 
+com.als.prj.abc.module.user.act  action层
+com.als.prj.abc.module.user.biz  service层
+com.als.prj.abc.module.user.dao  dao层(一张表一个dao)
+com.als.prj.abc.module.user.dao
+com.als.prj.abc.module.user.dao.UmsUserDAO.java
+
+config 配置文件
+config.sqlmap mybatis配置
+config.sqlmap.mysql 采用数据库的时候使用（与als-context.xml中的sqlSessionFactory一致）
+config.sqlmap.mysql.als-abc-user.xml（公司名－模块名－功能名.xml.xml中的namespace与类名一至，如：com.als.prj.abc.module.user.dao)
+-----------------------------------------------------------------

@@ -1,0 +1,5 @@
+1. 国际化
+A:  src/config.i18n包下，以messages打头，如messages_zh.properties
+B:  国际化properties的文件编码都用utf-8
+C:  打开中文的编辑采用：propertiesEditor,编完后自动会转为scn码。
+
